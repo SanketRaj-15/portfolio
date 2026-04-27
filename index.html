@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket Raj | AR/VR System Analyst & 3D Modeler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-mesh">
+        <div class="mesh-blob"></div>
+        <div class="mesh-blob" style="animation-delay: -7s; width: 450px; left: 60%; background: #00D4AA;"></div>
+        <div class="mesh-blob" style="animation-delay: -13s; width: 360px; height: 360px; left: 72%; top: 8%; background: #FF6584; opacity: 0.13;"></div>
+        <div class="mesh-orb" style="left: 7%; top: 18%;"></div>
+        <div class="mesh-orb" style="right: 9%; bottom: 14%; width: 160px; height: 160px; animation-delay: -6s;"></div>
+    </div>
+
+    <div class="c-dot" id="c-dot"></div>
+    <div class="c-outline" id="c-outline"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo">Sanket<span>.</span>Raj</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero section" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-greeting"><span class="wave">XR</span><span>Unity-led immersive systems portfolio</span></div>
+                <h1 class="hero-name glitch-name" data-text="Sanket Raj">Sanket <span class="highlight">Raj</span></h1>
+                <p class="hero-title">I'm a <span class="typewriter" id="typewriter"></span></p>
+                <p class="hero-description">
+                    I design practical AR/VR experiences that move from 3D asset workflow to Unity integration, interaction logic, and deployable educational products. My focus is clean spatial UX, reliable scene architecture, and immersive learning that feels usable, not just impressive.
+                </p>
+                <div class="hero-proof">
+                    <span class="proof-chip"><i class="fab fa-unity"></i> Unity 2D/3D</span>
+                    <span class="proof-chip"><i class="fas fa-vr-cardboard"></i> AR Foundation + Vuforia</span>
+                    <span class="proof-chip"><i class="fas fa-cube"></i> Blender Pipeline</span>
+                    <span class="proof-chip"><i class="fas fa-layer-group"></i> Spatial UX</span>
+                </div>
+                <div class="pipeline-panel" aria-label="AR VR production pipeline">
+                    <div class="pipeline-step"><i class="fas fa-pencil-ruler"></i><strong>Plan</strong><span>UX flow</span></div>
+                    <div class="pipeline-step"><i class="fas fa-cubes"></i><strong>Model</strong><span>3D assets</span></div>
+                    <div class="pipeline-step"><i class="fab fa-unity"></i><strong>Build</strong><span>Unity scenes</span></div>
+                    <div class="pipeline-step"><i class="fas fa-mobile-screen"></i><strong>Deploy</strong><span>Mobile XR</span></div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View My Work</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/SanketIEMA" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sanketraj15/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:ssraj4962@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+916201325012" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="hero-visual-shell">
+                    <div class="floating-panel panel-unity">
+                        <i class="fab fa-unity"></i>
+                        <strong>Scene Systems</strong>
+                        <span>Interaction, physics, asset flow</span>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img class="hero-image" src="profile.png" alt="Sanket Raj - AR/VR System Analyst & 3D Modeler">
+                    </div>
+                    <div class="floating-panel panel-xr">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <strong>Immersive UX</strong>
+                        <span>Marker AR, simulations, spatial UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stats-container">
+                <div class="stat-item"><div class="stat-number" data-target="4">0</div><div class="stat-label">Projects Completed</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="3">0</div><div class="stat-label">Certifications</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="2">0</div><div class="stat-label">Work Experiences</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="10">0</div><div class="stat-label">Technologies</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Get to Know Me</span>
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <p class="section-subtitle">Passionate AR/VR developer building immersive digital experiences</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-container fade-in">
+                    <div class="about-image-card">
+                        <div class="about-image-placeholder"><img src="profile.png" alt="Sanket Raj"></div>
+                        <div class="about-image-info">
+                            <div class="status"><div class="status-dot"></div>Available for opportunities</div>
+                            <a href="#" class="btn btn-outline" style="padding:8px 18px; font-size:0.8rem;"><i class="fas fa-download"></i> Resume</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content fade-in">
+                    <h3>Building immersive experiences that educate & inspire</h3>
+                    <p>I'm a results-driven System Analyst specializing in AR/VR development with a strong foundation in 3D modeling and game engine integration. I have proven expertise in contributing to immersive applications for education and spatial visualization.</p>
+                    <p>Currently working at IEMA Research and Development Pvt. Ltd., I design and implement AR/VR software specifications and interactive applications. I'm adept at transitioning from technical internships to professional roles within the AR/VR sector, having secured a Pre-Placement Offer (PPO) during my internship.</p>
+                    <div class="about-details">
+                        <div class="detail-item"><i class="fas fa-user"></i><div><div class="label">Name</div><div class="value">Sanket Raj</div></div></div>
+                        <div class="detail-item"><i class="fas fa-envelope"></i><div><div class="label">Email</div><div class="value">ssraj4962@gmail.com</div></div></div>
+                        <div class="detail-item"><i class="fas fa-map-marker-alt"></i><div><div class="label">Location</div><div class="value">Kolkata, West Bengal</div></div></div>
+                        <div class="detail-item"><i class="fas fa-phone"></i><div><div class="label">Phone</div><div class="value">+91 6201325012</div></div></div>
+                        <div class="detail-item"><i class="fas fa-graduation-cap"></i><div><div class="label">Degree</div><div class="value">B.Tech CSE, UEMK</div></div></div>
+                        <div class="detail-item"><i class="fas fa-briefcase"></i><div><div class="label">Current Role</div><div class="value">System Analyst (AR/VR)</div></div></div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-handshake"></i> Let's Work Together</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">What I Know</span>
+                <h2 class="section-title">Skills & <span class="highlight">Technologies</span></h2>
+                <p class="section-subtitle">My technical toolkit for building immersive AR/VR experiences</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in"><div class="skill-category-header"><div class="skill-category-icon"><i class="fas fa-vr-cardboard"></i></div><div><div class="skill-category-title">AR/VR Development</div><div class="skill-category-count">4 technologies</div></div></div><div class="skills-list"><span class="skill-tag">Unity 2D/3D</span><span class="skill-tag">AR Foundation</span><span class="skill-tag">Vuforia (Marker-based)</span><span class="skill-tag">Vuforia (Markerless)</span></div></div>
+                <div class="skill-category fade-in"><div class="skill-category-header"><div class="skill-category-icon"><i class="fas fa-cube"></i></div><div><div class="skill-category-title">3D Modeling & Design</div><div class="skill-category-count">4 tools</div></div></div><div class="skills-list"><span class="skill-tag">Blender</span><span class="skill-tag">SketchUp</span><span class="skill-tag">Figma</span><span class="skill-tag">Canva</span></div></div>
+                <div class="skill-category fade-in"><div class="skill-category-header"><div class="skill-category-icon"><i class="fas fa-code"></i></div><div><div class="skill-category-title">Programming</div><div class="skill-category-count">4 languages</div></div></div><div class="skills-list"><span class="skill-tag">C#</span><span class="skill-tag">Java (Basic)</span><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span></div></div>
+                <div class="skill-category fade-in"><div class="skill-category-header"><div class="skill-category-icon"><i class="fas fa-film"></i></div><div><div class="skill-category-title">Multimedia & Cloud</div><div class="skill-category-count">4 tools</div></div></div><div class="skills-list"><span class="skill-tag">DaVinci Resolve</span><span class="skill-tag">Clipchamp</span><span class="skill-tag">Watson Assistant</span><span class="skill-tag">IBM Cloud</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">My Work</span>
+                <h2 class="section-title">Technical <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">A selection of projects showcasing my AR/VR, multimedia, and web development skills</p>
+            </div>
+            <div class="projects-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ar-vr">AR/VR</button>
+                <button class="filter-btn" data-filter="multimedia">Multimedia</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-landmark"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR</span><span class="project-tag">Unity</span><span class="project-tag">Vuforia</span><span class="project-tag">Marker-based</span></div><h3 class="project-name">National Postal Museum (NPM)</h3><p class="project-desc">Designed and implemented an augmented reality project for museum visitors, enabling digital interaction with historical postal exhibits and artifacts through marker-based tracking.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-map-marker-alt"></i> Museum AR</span></div></div></div>
+                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-vr-cardboard"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR/VR</span><span class="project-tag">Blender</span><span class="project-tag">Scripting</span></div><h3 class="project-name">AR/VR Series 1 Course</h3><p class="project-desc">Created a comprehensive course on using Blender for AR/VR development, including detailed scripting and workflows for building immersive 3D environments.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-graduation-cap"></i> Course</span></div></div></div>
+                <div class="project-card fade-in" data-category="multimedia"><div class="project-image"><i class="fas fa-clapperboard"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">DaVinci Resolve</span><span class="project-tag">Clipchamp</span><span class="project-tag">Video Editing</span></div><h3 class="project-name">TMS & AHM Video Editing</h3><p class="project-desc">Produced and edited high-quality video content for TMS and AHM using DaVinci Resolve and Clipchamp, delivering professional-grade multimedia assets.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-video"></i> Multimedia</span></div></div></div>
+                <div class="project-card fade-in" data-category="web"><div class="project-image"><i class="fas fa-utensils"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Watson Assistant</span><span class="project-tag">IBM Cloud</span><span class="project-tag">Web</span></div><h3 class="project-name">Savory Seekers</h3><p class="project-desc">Developed a restaurant discovery website featuring a Watson Assistant chatbot, helping users find restaurants, explore menus, and get personalized recommendations.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-robot"></i> AI Chatbot</span></div></div></div>
+            </div>
+            <div class="ux-note fade-in">
+                <i class="fas fa-compass-drafting"></i>
+                <div>
+                    <strong>Design principle: immersive first, usable always.</strong>
+                    <p>Each project is framed around the complete production loop: user goal, 3D asset preparation, Unity interaction design, testing constraints, and final deployable experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header fade-in"><span class="section-label">My Journey</span><h2 class="section-title">Work <span class="highlight">Experience</span></h2><p class="section-subtitle">Professional roles and contributions in the AR/VR industry</p></div>
+            <div class="experience-container"><div class="timeline">
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div class="timeline-role">System Analyst (AR/VR)</div><span class="timeline-date">09/2025 - Present</span></div><div class="timeline-company"><i class="fas fa-building"></i> IEMA Research and Development Pvt. Ltd.</div><div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</div><ul class="timeline-desc"><li>Designing and implementing AR/VR software specifications and interactive applications</li><li>LabReality App: Contributed as a core team member to develop interactive science experiments and simulations within the immersive educational platform</li><li>VisualizeXR App: Developed specific modules for high-fidelity spatial visualization and streamlined 3D asset interaction workflows</li></ul></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div class="timeline-role">AR/VR Intern</div><span class="timeline-date">03/2025 - 08/2025</span></div><div class="timeline-company"><i class="fas fa-building"></i> IEMA Research and Development Pvt. Ltd.</div><div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</div><ul class="timeline-desc"><li>Contributed to the development of Unity-based 2D and 3D environments and asset creation</li><li>Secured a Pre-Placement Offer (PPO) for full-time employment starting September 1, 2025</li><li>Gained hands-on experience with AR Foundation, Vuforia, and Unity game engine</li></ul></div></div>
+            </div></div>
+        </div>
+    </section>
+
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header fade-in"><span class="section-label">Academic Background</span><h2 class="section-title">Education</h2><p class="section-subtitle">My academic journey in Computer Science & Engineering</p></div>
+            <div class="education-grid">
+                <div class="education-card fade-in"><div class="education-icon"><i class="fas fa-graduation-cap"></i></div><div class="education-degree">B.Tech in Computer Science & Engineering</div><div class="education-school">University of Engineering & Management (UEMK)</div><div class="education-location"><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</div><span class="education-date">2021 - 2025</span></div>
+                <div class="education-card fade-in"><div class="education-icon"><i class="fas fa-book-open"></i></div><div class="education-degree">Higher Secondary (Science)</div><div class="education-school">R.P.S. College</div><div class="education-location"><i class="fas fa-map-marker-alt"></i> Bihar</div><span class="education-date">2019 - 2021</span></div>
+                <div class="education-card fade-in"><div class="education-icon"><i class="fas fa-school"></i></div><div class="education-degree">Secondary Education (CBSE)</div><div class="education-school">ST. Paul's English School, Sartha</div><div class="education-location"><i class="fas fa-map-marker-alt"></i> Bihar</div><span class="education-date">03/2018 - 05/2019</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="certifications">
+        <div class="container">
+            <div class="section-header fade-in"><span class="section-label">Credentials</span><h2 class="section-title">Certifications</h2><p class="section-subtitle">Professional certifications and courses I've completed</p></div>
+            <div class="certifications-grid">
+                <div class="cert-card fade-in"><div class="cert-icon"><i class="fas fa-brain"></i></div><div><div class="cert-name">Artificial Intelligence Fundamentals</div><div class="cert-issuer"><i class="fas fa-award" style="color:var(--primary); margin-right:4px;"></i> IBM Skill Build</div></div></div>
+                <div class="cert-card fade-in"><div class="cert-icon"><i class="fas fa-headset"></i></div><div><div class="cert-name">Technical Support Basics</div><div class="cert-issuer"><i class="fas fa-award" style="color:var(--primary); margin-right:4px;"></i> Coursera</div></div></div>
+                <div class="cert-card fade-in"><div class="cert-icon"><i class="fas fa-globe"></i></div><div><div class="cert-name">Web Development</div><div class="cert-issuer"><i class="fas fa-award" style="color:var(--primary); margin-right:4px;"></i> CODSOFT</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in"><span class="section-label">Get in Touch</span><h2 class="section-title">Contact <span class="highlight">Me</span></h2><p class="section-subtitle">Have a project in mind or want to collaborate? Let's connect!</p></div>
+            <div class="contact-wrapper">
+                <div class="contact-info fade-in">
+                    <h3>Let's create something immersive together</h3>
+                    <p>I'm always open to discussing new AR/VR projects, creative ideas, or opportunities to contribute to innovative immersive experiences. Feel free to reach out!</p>
+                    <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label">Email</div><div class="contact-item-value">ssraj4962@gmail.com</div></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-phone"></i></div><div><div class="contact-item-label">Phone</div><div class="contact-item-value">+91 6201325012</div></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">Location</div><div class="contact-item-value">Kolkata, West Bengal, India</div></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div><div><div class="contact-item-label">LinkedIn</div><div class="contact-item-value">linkedin.com/in/sanketraj15</div></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><i class="fab fa-github"></i></div><div><div class="contact-item-label">GitHub</div><div class="contact-item-value">github.com/SanketIEMA</div></div></div>
+                </div>
+                <div class="contact-form-wrapper fade-in">
+                    <form id="contactForm" class="form-grid">
+                        <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" placeholder="John Doe" required></div>
+                        <div class="form-group"><label for="email">Your Email</label><input type="email" id="email" placeholder="john@example.com" required></div>
+                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="+91 00000 00000"></div>
+                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" placeholder="AR/VR Project Inquiry" required></div>
+                        <div class="form-group full-width"><label for="projectType">Project Type</label><select id="projectType"><option value="" disabled selected>Select project type</option><option value="ar">Augmented Reality (AR)</option><option value="vr">Virtual Reality (VR)</option><option value="3d">3D Modeling</option><option value="web">Web Development</option><option value="video">Video Editing</option><option value="other">Other</option></select></div>
+                        <div class="form-group full-width"><label for="message">Your Message</label><textarea id="message" placeholder="Tell me about your project, ideas, or how we can collaborate..." required></textarea></div>
+                        <div class="form-submit"><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><a href="#home" class="logo">Sanket<span>.</span>Raj</a><p>AR/VR System Analyst & 3D Modeler passionate about crafting immersive digital experiences. Specializing in Unity, Blender, and interactive application development.</p><div class="footer-social"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/sanketraj15/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="mailto:ssraj4962@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a><a href="tel:+916201325012" aria-label="Phone"><i class="fas fa-phone"></i></a></div></div>
+                <div class="footer-column"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+                <div class="footer-column"><h4>Expertise</h4><a href="#skills">AR Development</a><a href="#skills">VR Development</a><a href="#skills">3D Modeling</a><a href="#skills">Video Editing</a><a href="#skills">Web Development</a></div>
+                <div class="footer-column"><h4>Resources</h4><a href="#">Resume / CV</a><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sanketraj15/" target="_blank" rel="noopener">LinkedIn</a><a href="#projects">AR/VR Course</a><a href="#certifications">Certifications</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Sanket Raj. All rights reserved. Made with <span class="heart">❤</span> in Kolkata, India</p></div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
