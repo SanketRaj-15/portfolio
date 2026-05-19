@@ -19,7 +19,7 @@ function animateCursor() {
 }
 animateCursor();
 
-document.querySelectorAll('a, button, input, textarea, select, .project-card, .skill-category, .cert-card, .education-card, .contact-item, .stat-item, .detail-item').forEach(el => {
+document.querySelectorAll('a, button, input, textarea, select, video, .project-card, .skill-category, .cert-card, .education-card, .contact-item, .stat-item, .detail-item, .video-card, .download-card, .model-viewer-wrapper').forEach(el => {
     el.addEventListener('mouseenter', () => {
         outline.style.width = '65px';
         outline.style.height = '65px';
@@ -160,3 +160,136 @@ filterBtns.forEach(btn => {
         });
     });
 });
+
+document.querySelectorAll('.video-wrapper video').forEach(video => {
+    const revealFallback = () => {
+        video.style.opacity = '0';
+        video.style.pointerEvents = 'none';
+    };
+    video.addEventListener('error', revealFallback);
+    video.querySelectorAll('source').forEach(source => source.addEventListener('error', revealFallback));
+});
+
+function initModelViewer() {
+    const container = document.getElementById('model-container');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(0, 1.5, 5.5);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    container.appendChild(renderer.domElement);
+
+    const ambientLight = new THREE.HemisphereLight(0xffffff, 0x6c63ff, 1.25);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.4);
+    keyLight.position.set(4, 6, 5);
+    scene.add(keyLight);
+
+    const accentLight = new THREE.PointLight(0x00d4aa, 1.7, 8);
+    accentLight.position.set(-3, 1.8, 2.4);
+    scene.add(accentLight);
+
+    const root = new THREE.Group();
+    scene.add(root);
+
+    function createProceduralShowcase() {
+        const primary = new THREE.MeshStandardMaterial({ color: 0x6c63ff, roughness: 0.28, metalness: 0.45 });
+        const accent = new THREE.MeshStandardMaterial({ color: 0x00d4aa, roughness: 0.34, metalness: 0.35 });
+        const soft = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.18, metalness: 0.18, transparent: true, opacity: 0.82 });
+
+        const headset = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.9, 0.72, 8, 8, 8), primary);
+        headset.position.y = 0.45;
+        headset.scale.set(1, 1, 0.86);
+        root.add(headset);
+
+        const visor = new THREE.Mesh(new THREE.BoxGeometry(1.72, 0.56, 0.08, 8, 8, 2), soft);
+        visor.position.set(0, 0.48, 0.39);
+        root.add(visor);
+
+        [-1.32, 1.32].forEach(x => {
+            const controller = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.24, 1.05, 32), accent);
+            controller.position.set(x, -0.75, 0.2);
+            controller.rotation.z = x < 0 ? -0.28 : 0.28;
+            controller.rotation.x = 0.32;
+            root.add(controller);
+
+            const ring = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.035, 12, 42), soft);
+            ring.position.set(x, -0.18, 0.04);
+            ring.rotation.x = Math.PI / 2.6;
+            ring.rotation.z = x < 0 ? -0.18 : 0.18;
+            root.add(ring);
+        });
+
+        const orbitRing = new THREE.Mesh(
+            new THREE.TorusGeometry(1.95, 0.012, 16, 120),
+            new THREE.MeshBasicMaterial({ color: 0xff6584, transparent: true, opacity: 0.66 })
+        );
+        orbitRing.rotation.x = Math.PI / 2.25;
+        root.add(orbitRing);
+
+        const grid = new THREE.GridHelper(5, 18, 0x6c63ff, 0xb8c2ff);
+        grid.position.y = -1.35;
+        grid.material.transparent = true;
+        grid.material.opacity = 0.22;
+        scene.add(grid);
+    }
+
+    function fitLoadedModel(model) {
+        const box = new THREE.Box3().setFromObject(model);
+        const size = box.getSize(new THREE.Vector3());
+        const center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
+        const maxAxis = Math.max(size.x, size.y, size.z) || 1;
+        model.scale.setScalar(2.6 / maxAxis);
+        root.add(model);
+    }
+
+    if (typeof THREE.GLTFLoader === 'function') {
+        const loader = new THREE.GLTFLoader();
+        loader.load('models/bike.glb', gltf => fitLoadedModel(gltf.scene), undefined, createProceduralShowcase);
+    } else {
+        createProceduralShowcase();
+    }
+
+    let controls;
+    if (typeof THREE.OrbitControls === 'function') {
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+        controls.enablePan = false;
+        controls.minDistance = 3;
+        controls.maxDistance = 8;
+    }
+
+    function resizeRenderer() {
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
+    window.addEventListener('resize', resizeRenderer);
+
+    function animateModel() {
+        requestAnimationFrame(animateModel);
+        if (!controls) {
+            root.rotation.y += 0.008;
+        } else {
+            controls.update();
+        }
+        root.rotation.x = Math.sin(Date.now() * 0.001) * 0.045;
+        renderer.render(scene, camera);
+    }
+
+    animateModel();
+}
+
+window.addEventListener('load', initModelViewer);

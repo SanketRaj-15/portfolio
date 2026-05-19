@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
     <div class="bg-mesh">
@@ -28,6 +31,9 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#showcase">Showcase</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#models">3D Models</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
@@ -78,7 +84,7 @@
                         <span>Interaction, physics, asset flow</span>
                     </div>
                     <div class="hero-image-wrapper">
-                        <img class="hero-image" src="profile.png" alt="Sanket Raj - AR/VR System Analyst & 3D Modeler">
+                        <img class="hero-image" src="images/profile.png" alt="Sanket Raj - AR/VR System Analyst & 3D Modeler">
                     </div>
                     <div class="floating-panel panel-xr">
                         <i class="fas fa-vr-cardboard"></i>
@@ -90,7 +96,7 @@
         </div>
         <div class="hero-stats">
             <div class="stats-container">
-                <div class="stat-item"><div class="stat-number" data-target="4">0</div><div class="stat-label">Projects Completed</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="6">0</div><div class="stat-label">Projects Completed</div></div>
                 <div class="stat-item"><div class="stat-number" data-target="3">0</div><div class="stat-label">Certifications</div></div>
                 <div class="stat-item"><div class="stat-number" data-target="2">0</div><div class="stat-label">Work Experiences</div></div>
                 <div class="stat-item"><div class="stat-number" data-target="10">0</div><div class="stat-label">Technologies</div></div>
@@ -108,10 +114,10 @@
             <div class="about-grid">
                 <div class="about-image-container fade-in">
                     <div class="about-image-card">
-                        <div class="about-image-placeholder"><img src="profile.png" alt="Sanket Raj"></div>
+                        <div class="about-image-placeholder"><img src="images/profile.png" alt="Sanket Raj"></div>
                         <div class="about-image-info">
                             <div class="status"><div class="status-dot"></div>Available for opportunities</div>
-                            <a href="#" class="btn btn-outline" style="padding:8px 18px; font-size:0.8rem;"><i class="fas fa-download"></i> Resume</a>
+                            <a href="resume/Sanket_Raj_GD_Resume.pdf" class="btn btn-outline" style="padding:8px 18px; font-size:0.8rem;" download><i class="fas fa-download"></i> Resume</a>
                         </div>
                     </div>
                 </div>
@@ -167,6 +173,8 @@
                 <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-vr-cardboard"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR/VR</span><span class="project-tag">Blender</span><span class="project-tag">Scripting</span></div><h3 class="project-name">AR/VR Series 1 Course</h3><p class="project-desc">Created a comprehensive course on using Blender for AR/VR development, including detailed scripting and workflows for building immersive 3D environments.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-graduation-cap"></i> Course</span></div></div></div>
                 <div class="project-card fade-in" data-category="multimedia"><div class="project-image"><i class="fas fa-clapperboard"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">DaVinci Resolve</span><span class="project-tag">Clipchamp</span><span class="project-tag">Video Editing</span></div><h3 class="project-name">TMS & AHM Video Editing</h3><p class="project-desc">Produced and edited high-quality video content for TMS and AHM using DaVinci Resolve and Clipchamp, delivering professional-grade multimedia assets.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-video"></i> Multimedia</span></div></div></div>
                 <div class="project-card fade-in" data-category="web"><div class="project-image"><i class="fas fa-utensils"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Watson Assistant</span><span class="project-tag">IBM Cloud</span><span class="project-tag">Web</span></div><h3 class="project-name">Savory Seekers</h3><p class="project-desc">Developed a restaurant discovery website featuring a Watson Assistant chatbot, helping users find restaurants, explore menus, and get personalized recommendations.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-robot"></i> AI Chatbot</span></div></div></div>
+                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image project-thumb"><img src="images/Clash_Bowl/Clash_Bowl.png" alt="Clash Bowl gameplay preview"><div class="project-overlay"><a href="apk/clash-bowl.apk" download aria-label="Download Clash Bowl APK"><i class="fas fa-download"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Unity</span><span class="project-tag">Android APK</span><span class="project-tag">Arcade</span></div><h3 class="project-name">Clash Bowl</h3><p class="project-desc">A playable Unity arcade build with responsive controls, polished gameplay feedback, and a downloadable Android APK for hands-on testing.</p><div class="project-footer"><a href="#showcase">Watch Showcase <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-gamepad"></i> Playable Build</span></div></div></div>
+                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-bolt"></i><div class="project-overlay"><a href="apk/Battery Eliminator 2.1.apk" download aria-label="Download Battery Eliminator APK"><i class="fas fa-download"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Unity</span><span class="project-tag">APK</span><span class="project-tag">Interactive</span></div><h3 class="project-name">Battery Eliminator 2.1</h3><p class="project-desc">An Android-ready interactive build packaged as an APK, added to the portfolio as a direct downloadable project artifact.</p><div class="project-footer"><a href="#downloads">Download Build <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-mobile-screen"></i> Android</span></div></div></div>
             </div>
             <div class="ux-note fade-in">
                 <i class="fas fa-compass-drafting"></i>
@@ -174,6 +182,93 @@
                     <strong>Design principle: immersive first, usable always.</strong>
                     <p>Each project is framed around the complete production loop: user goal, 3D asset preparation, Unity interaction design, testing constraints, and final deployable experience.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="showcase">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Cinematic Showcase</span>
+                <h2 class="section-title">Gameplay <span class="highlight">Showcase</span></h2>
+                <p class="section-subtitle">Interactive gameplay systems, immersive Unity projects, cinematic experiences, and real-time application showcases.</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-card fade-in">
+                    <div class="video-wrapper">
+                        <video controls autoplay muted loop playsinline poster="images/Clash_Bowl/Clash_Bowl.png">
+                            <source src="videos/Clash_Bowl/Clash_Bowl.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-fallback">
+                            <i class="fab fa-unity"></i>
+                            <span>Gameplay video preview for Clash Bowl</span>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">Arcade</span>
+                            <span class="project-tag">Gameplay</span>
+                        </div>
+                        <h3>Clash Bowl</h3>
+                        <p>A Unity-based immersive arcade experience featuring responsive gameplay mechanics, smooth interaction systems, and optimized player controls.</p>
+                        <div class="video-buttons">
+                            <a href="apk/clash-bowl.apk" class="btn btn-primary" download><i class="fas fa-download"></i> Download APK</a>
+                            <a href="https://github.com/SanketRaj-15" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="downloads">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Playable Builds</span>
+                <h2 class="section-title">Download <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">Download playable APK builds and explore immersive Unity experiences.</p>
+            </div>
+            <div class="download-grid">
+                <div class="download-card fade-in">
+                    <div class="download-media">
+                        <img src="images/Clash_Bowl/Clash_Bowl_1.png" alt="Clash Bowl gameplay preview">
+                    </div>
+                    <div class="download-content">
+                        <div class="download-icon"><i class="fas fa-gamepad"></i></div>
+                        <h3>Clash Bowl</h3>
+                        <p>Unity arcade gameplay experience featuring smooth interactions, optimized controls, and immersive gameplay systems.</p>
+                        <a href="apk/clash-bowl.apk" class="btn btn-primary" download><i class="fas fa-download"></i> Download APK</a>
+                    </div>
+                </div>
+                <div class="download-card fade-in">
+                    <div class="download-media download-icon-media">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="download-content">
+                        <div class="download-icon"><i class="fas fa-mobile-screen"></i></div>
+                        <h3>Battery Eliminator 2.1</h3>
+                        <p>Download the packaged Android APK build for Battery Eliminator 2.1 and test the project directly on a supported device.</p>
+                        <a href="apk/Battery Eliminator 2.1.apk" class="btn btn-primary" download><i class="fas fa-download"></i> Download APK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="models">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Interactive Experience</span>
+                <h2 class="section-title">Bike 3D Model <span class="highlight">Showcase</span></h2>
+                <p class="section-subtitle">Interactive real-time bike visualization powered by Blender and Three.js.</p>
+            </div>
+            <div class="model-viewer-wrapper fade-in">
+                <div class="model-toolbar">
+                    <span><i class="fas fa-cube"></i> Drag to orbit</span>
+                    <span><i class="fas fa-magnifying-glass"></i> Scroll to zoom</span>
+                </div>
+                <div id="model-container" aria-label="Interactive 3D model viewer"></div>
             </div>
         </div>
     </section>
@@ -242,11 +337,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand"><a href="#home" class="logo">Sanket<span>.</span>Raj</a><p>AR/VR System Analyst & 3D Modeler passionate about crafting immersive digital experiences. Specializing in Unity, Blender, and interactive application development.</p><div class="footer-social"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/sanketraj15/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="mailto:ssraj4962@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a><a href="tel:+916201325012" aria-label="Phone"><i class="fas fa-phone"></i></a></div></div>
-                <div class="footer-column"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+                <div class="footer-column"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#showcase">Showcase</a><a href="#downloads">Downloads</a><a href="#contact">Contact</a></div>
                 <div class="footer-column"><h4>Expertise</h4><a href="#skills">AR Development</a><a href="#skills">VR Development</a><a href="#skills">3D Modeling</a><a href="#skills">Video Editing</a><a href="#skills">Web Development</a></div>
-                <div class="footer-column"><h4>Resources</h4><a href="#">Resume / CV</a><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sanketraj15/" target="_blank" rel="noopener">LinkedIn</a><a href="#projects">AR/VR Course</a><a href="#certifications">Certifications</a></div>
+                <div class="footer-column"><h4>Resources</h4><a href="resume/Sanket_Raj_GD_Resume.pdf" download>Resume / CV</a><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sanketraj15/" target="_blank" rel="noopener">LinkedIn</a><a href="#models">3D Model</a><a href="#certifications">Certifications</a></div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2025 Sanket Raj. All rights reserved. Made with <span class="heart">❤</span> in Kolkata, India</p></div>
+            <div class="footer-bottom"><p>&copy; 2025 Sanket Raj. All rights reserved. Made with <span class="heart">&hearts;</span> in Kolkata, India</p></div>
         </div>
     </footer>
 
