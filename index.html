@@ -7,9 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
     <div class="bg-mesh">
@@ -25,6 +23,7 @@
 
     <nav class="navbar" id="navbar">
         <div class="container">
+            <!-- <div class="availability-pill"><span></span> Available for new opportunities</div> -->
             <a href="#home" class="logo">Sanket<span>.</span>Raj</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
@@ -32,10 +31,8 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#showcase">Showcase</a></li>
-                <li><a href="#downloads">Downloads</a></li>
-                <li><a href="#models">3D Models</a></li>
+                <li><a href="#downloads">Builds</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
                 <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -169,10 +166,10 @@
                 <button class="filter-btn" data-filter="web">Web</button>
             </div>
             <div class="projects-grid">
-                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-landmark"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR</span><span class="project-tag">Unity</span><span class="project-tag">Vuforia</span><span class="project-tag">Marker-based</span></div><h3 class="project-name">National Postal Museum (NPM)</h3><p class="project-desc">Designed and implemented an augmented reality project for museum visitors, enabling digital interaction with historical postal exhibits and artifacts through marker-based tracking.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-map-marker-alt"></i> Museum AR</span></div></div></div>
-                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-vr-cardboard"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR/VR</span><span class="project-tag">Blender</span><span class="project-tag">Scripting</span></div><h3 class="project-name">AR/VR Series 1 Course</h3><p class="project-desc">Created a comprehensive course on using Blender for AR/VR development, including detailed scripting and workflows for building immersive 3D environments.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-graduation-cap"></i> Course</span></div></div></div>
-                <div class="project-card fade-in" data-category="multimedia"><div class="project-image"><i class="fas fa-clapperboard"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">DaVinci Resolve</span><span class="project-tag">Clipchamp</span><span class="project-tag">Video Editing</span></div><h3 class="project-name">TMS & AHM Video Editing</h3><p class="project-desc">Produced and edited high-quality video content for TMS and AHM using DaVinci Resolve and Clipchamp, delivering professional-grade multimedia assets.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-video"></i> Multimedia</span></div></div></div>
-                <div class="project-card fade-in" data-category="web"><div class="project-image"><i class="fas fa-utensils"></i><div class="project-overlay"><a href="https://github.com/SanketIEMA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Watson Assistant</span><span class="project-tag">IBM Cloud</span><span class="project-tag">Web</span></div><h3 class="project-name">Savory Seekers</h3><p class="project-desc">Developed a restaurant discovery website featuring a Watson Assistant chatbot, helping users find restaurants, explore menus, and get personalized recommendations.</p><div class="project-footer"><a href="#">View Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-robot"></i> AI Chatbot</span></div></div></div>
+                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-landmark"></i><div class="project-overlay"><a href="#contact" aria-label="Discuss National Postal Museum project"><i class="fas fa-paper-plane"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR</span><span class="project-tag">Unity</span><span class="project-tag">Vuforia</span><span class="project-tag">Marker-based</span></div><h3 class="project-name">National Postal Museum (NPM)</h3><p class="project-desc">Designed and implemented an augmented reality project for museum visitors, enabling digital interaction with historical postal exhibits and artifacts through marker-based tracking.</p><div class="project-footer"><a href="#contact">Discuss Project <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-map-marker-alt"></i> Museum AR</span></div></div></div>
+                <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-vr-cardboard"></i><div class="project-overlay"><a href="#models" aria-label="View 3D model showcase"><i class="fas fa-cube"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">AR/VR</span><span class="project-tag">Blender</span><span class="project-tag">Scripting</span></div><h3 class="project-name">AR/VR Series 1 Course</h3><p class="project-desc">Created a comprehensive course on using Blender for AR/VR development, including detailed scripting and workflows for building immersive 3D environments.</p><div class="project-footer"><a href="#models">View 3D Work <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-graduation-cap"></i> Course</span></div></div></div>
+                <div class="project-card fade-in" data-category="multimedia"><div class="project-image"><i class="fas fa-clapperboard"></i><div class="project-overlay"><a href="#showcase" aria-label="Watch showcase videos"><i class="fas fa-play"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">DaVinci Resolve</span><span class="project-tag">Clipchamp</span><span class="project-tag">Video Editing</span></div><h3 class="project-name">TMS & AHM Video Editing</h3><p class="project-desc">Produced and edited high-quality video content for TMS and AHM using DaVinci Resolve and Clipchamp, delivering professional-grade multimedia assets.</p><div class="project-footer"><a href="#showcase">Watch Showcase <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-video"></i> Multimedia</span></div></div></div>
+                <div class="project-card fade-in" data-category="web"><div class="project-image"><i class="fas fa-utensils"></i><div class="project-overlay"><a href="#contact" aria-label="Contact about web projects"><i class="fas fa-paper-plane"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Watson Assistant</span><span class="project-tag">IBM Cloud</span><span class="project-tag">Web</span></div><h3 class="project-name">Savory Seekers</h3><p class="project-desc">Developed a restaurant discovery website featuring a Watson Assistant chatbot, helping users find restaurants, explore menus, and get personalized recommendations.</p><div class="project-footer"><a href="#contact">Discuss Website <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-robot"></i> AI Chatbot</span></div></div></div>
                 <div class="project-card fade-in" data-category="ar-vr"><div class="project-image project-thumb"><img src="images/Clash_Bowl/Clash_Bowl.png" alt="Clash Bowl gameplay preview"><div class="project-overlay"><a href="apk/clash-bowl.apk" download aria-label="Download Clash Bowl APK"><i class="fas fa-download"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Unity</span><span class="project-tag">Android APK</span><span class="project-tag">Arcade</span></div><h3 class="project-name">Clash Bowl</h3><p class="project-desc">A playable Unity arcade build with responsive controls, polished gameplay feedback, and a downloadable Android APK for hands-on testing.</p><div class="project-footer"><a href="#showcase">Watch Showcase <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-gamepad"></i> Playable Build</span></div></div></div>
                 <div class="project-card fade-in" data-category="ar-vr"><div class="project-image"><i class="fas fa-bolt"></i><div class="project-overlay"><a href="apk/Battery Eliminator 2.1.apk" download aria-label="Download Battery Eliminator APK"><i class="fas fa-download"></i></a></div></div><div class="project-info"><div class="project-tags"><span class="project-tag">Unity</span><span class="project-tag">APK</span><span class="project-tag">Interactive</span></div><h3 class="project-name">Battery Eliminator 2.1</h3><p class="project-desc">An Android-ready interactive build packaged as an APK, added to the portfolio as a direct downloadable project artifact.</p><div class="project-footer"><a href="#downloads">Download Build <i class="fas fa-arrow-right"></i></a><span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-mobile-screen"></i> Android</span></div></div></div>
             </div>
@@ -261,14 +258,42 @@
             <div class="section-header fade-in">
                 <span class="section-label">Interactive Experience</span>
                 <h2 class="section-title">Bike 3D Model <span class="highlight">Showcase</span></h2>
-                <p class="section-subtitle">Interactive real-time bike visualization powered by Blender and Three.js.</p>
+                <p class="section-subtitle">Interactive real-time bike visualization powered by Blender and a web-native GLB viewer.</p>
             </div>
             <div class="model-viewer-wrapper fade-in">
                 <div class="model-toolbar">
                     <span><i class="fas fa-cube"></i> Drag to orbit</span>
                     <span><i class="fas fa-magnifying-glass"></i> Scroll to zoom</span>
                 </div>
-                <div id="model-container" aria-label="Interactive 3D model viewer"></div>
+                <model-viewer id="bike-model" src="models/bike.glb" camera-controls auto-rotate shadow-intensity="1" exposure="1" camera-orbit="35deg 68deg 4.8m" min-camera-orbit="auto auto 2.8m" max-camera-orbit="auto auto 8m" interaction-prompt="auto" alt="Interactive 3D bike model"></model-viewer>
+            </div>
+        </div>
+    </section>
+
+    <section class="section owner-section" id="owner-panel" data-owner-panel hidden>
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Owner Workspace</span>
+                <h2 class="section-title">Project <span class="highlight">Manager</span></h2>
+                <p class="section-subtitle">Add, preview, and remove portfolio project cards from your browser. Connect a backend later to publish edits for everyone.</p>
+            </div>
+            <div class="owner-grid">
+                <form id="projectAdminForm" class="owner-card form-grid">
+                    <div class="form-group"><label for="adminProjectName">Project Name</label><input type="text" id="adminProjectName" placeholder="Project title" required></div>
+                    <div class="form-group"><label for="adminProjectType">Project Type</label><select id="adminProjectType" required><option value="ar-vr">AR/VR</option><option value="multimedia">Multimedia</option><option value="web">Web</option></select></div>
+                    <div class="form-group full-width"><label for="adminProjectDescription">Description</label><textarea id="adminProjectDescription" placeholder="Short project description" required></textarea></div>
+                    <div class="form-group"><label for="adminProjectTags">Skills / Tags</label><input type="text" id="adminProjectTags" placeholder="Unity, Blender, AR"></div>
+                    <div class="form-group"><label for="adminProjectLink">Project Link</label><input type="url" id="adminProjectLink" placeholder="https://..."></div>
+                    <div class="form-group"><label for="adminProjectAsset">Image / Video / APK Link</label><input type="text" id="adminProjectAsset" placeholder="images/project.png or apk/build.apk"></div>
+                    <div class="form-group"><label for="adminProjectIcon">Icon Class</label><input type="text" id="adminProjectIcon" placeholder="fas fa-cube"></div>
+                    <div class="form-submit"><button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Project</button></div>
+                </form>
+                <div class="owner-card">
+                    <h3>Saved Projects</h3>
+                    <p class="owner-note">These edits are stored in this browser for now. For live client-wide edits, use Supabase/Firebase/Vercel storage with authentication.</p>
+                    <div id="adminProjectList" class="admin-project-list"></div>
+                    <button type="button" class="btn btn-outline" id="clearAdminProjects"><i class="fas fa-trash"></i> Clear Local Projects</button>
+                </div>
             </div>
         </div>
     </section>

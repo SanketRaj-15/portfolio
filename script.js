@@ -19,7 +19,7 @@ function animateCursor() {
 }
 animateCursor();
 
-document.querySelectorAll('a, button, input, textarea, select, video, .project-card, .skill-category, .cert-card, .education-card, .contact-item, .stat-item, .detail-item, .video-card, .download-card, .model-viewer-wrapper').forEach(el => {
+document.querySelectorAll('a, button, input, textarea, select, video, model-viewer, .project-card, .skill-category, .cert-card, .education-card, .contact-item, .stat-item, .detail-item, .video-card, .download-card, .model-viewer-wrapper, .owner-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
         outline.style.width = '65px';
         outline.style.height = '65px';
@@ -142,13 +142,12 @@ const fadeObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.getAttribute('data-filter');
-        projectCards.forEach((card, index) => {
+        document.querySelectorAll('.project-card').forEach((card, index) => {
             const category = card.getAttribute('data-category');
             if (filter === 'all' || filter === category) {
                 card.style.display = 'block';
@@ -160,6 +159,29 @@ filterBtns.forEach(btn => {
         });
     });
 });
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const projectType = document.getElementById('projectType').value;
+        const message = document.getElementById('message').value.trim();
+        const body = [
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Phone: ${phone || 'Not provided'}`,
+            `Project Type: ${projectType || 'Not selected'}`,
+            '',
+            message
+        ].join('\n');
+        window.location.href = `mailto:ssraj4962@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        contactForm.reset();
+    });
+}
 
 document.querySelectorAll('.video-wrapper video').forEach(video => {
     const revealFallback = () => {
@@ -293,3 +315,171 @@ function initModelViewer() {
 }
 
 window.addEventListener('load', initModelViewer);
+
+const OWNER_PASSCODE = 'sanket-xr-admin';
+const PROJECT_STORAGE_KEY = 'sanketPortfolioProjects';
+
+function loadCustomProjects() {
+    try {
+        return JSON.parse(localStorage.getItem(PROJECT_STORAGE_KEY)) || [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCustomProjects(projects) {
+    localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
+}
+
+function projectIconMarkup(project) {
+    if (project.asset && /\.(png|jpg|jpeg|webp|gif)$/i.test(project.asset)) {
+        return `<img src="${escapeHtml(project.asset)}" alt="${escapeHtml(project.name)} preview">`;
+    }
+    return `<i class="${escapeHtml(project.icon || 'fas fa-cube')}"></i>`;
+}
+
+function projectTagsMarkup(tags) {
+    return (tags || [])
+        .filter(Boolean)
+        .map(tag => `<span class="project-tag">${escapeHtml(tag.trim())}</span>`)
+        .join('');
+}
+
+function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    }[character]));
+}
+
+function createProjectCard(project) {
+    const card = document.createElement('div');
+    card.className = 'project-card fade-in visible';
+    card.dataset.category = project.type;
+    card.dataset.ownerProject = project.id;
+    const link = project.link || project.asset || '#contact';
+    const safeLink = escapeHtml(link);
+    const safeName = escapeHtml(project.name);
+    const safeTypeLabel = escapeHtml(project.typeLabel);
+    const isDownload = /\.(apk|zip|pdf)$/i.test(link);
+    card.innerHTML = `
+        <div class="project-image ${project.asset && /\.(png|jpg|jpeg|webp|gif)$/i.test(project.asset) ? 'project-thumb' : ''}">
+            ${projectIconMarkup(project)}
+            <div class="project-overlay">
+                <a href="${safeLink}" ${link.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} ${isDownload ? 'download' : ''} aria-label="Open ${safeName}">
+                    <i class="${isDownload ? 'fas fa-download' : 'fas fa-arrow-up-right-from-square'}"></i>
+                </a>
+            </div>
+        </div>
+        <div class="project-info">
+            <div class="project-tags">${projectTagsMarkup(project.tags)}</div>
+            <h3 class="project-name">${safeName}</h3>
+            <p class="project-desc">${escapeHtml(project.description)}</p>
+            <div class="project-footer">
+                <a href="${safeLink}" ${link.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} ${isDownload ? 'download' : ''}>${isDownload ? 'Download' : 'Open Project'} <i class="fas fa-arrow-right"></i></a>
+                <span style="font-size:0.8rem; color:var(--text-muted);"><i class="fas fa-layer-group"></i> ${safeTypeLabel}</span>
+            </div>
+        </div>
+    `;
+    return card;
+}
+
+function renderCustomProjects() {
+    const grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+    document.querySelectorAll('[data-owner-project]').forEach(card => card.remove());
+    loadCustomProjects().forEach(project => grid.appendChild(createProjectCard(project)));
+}
+
+function renderAdminProjectList() {
+    const list = document.getElementById('adminProjectList');
+    if (!list) return;
+    const projects = loadCustomProjects();
+    if (!projects.length) {
+        list.innerHTML = '<p class="owner-note">No locally saved projects yet.</p>';
+        return;
+    }
+    list.innerHTML = projects.map(project => `
+        <div class="admin-project-item">
+            <div>
+                <strong>${escapeHtml(project.name)}</strong>
+                <span>${escapeHtml(project.typeLabel)}</span>
+            </div>
+            <button type="button" class="admin-delete" data-delete-project="${escapeHtml(project.id)}" aria-label="Delete ${escapeHtml(project.name)}">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    `).join('');
+}
+
+function unlockOwnerPanel() {
+    const panel = document.querySelector('[data-owner-panel]');
+    if (!panel) return;
+    const alreadyUnlocked = sessionStorage.getItem('sanketOwnerUnlocked') === 'true';
+    const wantsOwner = new URLSearchParams(window.location.search).has('owner') || window.location.hash === '#owner-panel';
+    if (!alreadyUnlocked && !wantsOwner) return;
+    if (!alreadyUnlocked) {
+        const passcode = window.prompt('Owner passcode');
+        if (passcode !== OWNER_PASSCODE) {
+            window.location.hash = '';
+            return;
+        }
+        sessionStorage.setItem('sanketOwnerUnlocked', 'true');
+    }
+    panel.hidden = false;
+    renderAdminProjectList();
+}
+
+function initOwnerProjectManager() {
+    renderCustomProjects();
+    unlockOwnerPanel();
+
+    const form = document.getElementById('projectAdminForm');
+    if (form) {
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const type = document.getElementById('adminProjectType').value;
+            const typeLabels = { 'ar-vr': 'AR/VR', multimedia: 'Multimedia', web: 'Web' };
+            const project = {
+                id: `project-${Date.now()}`,
+                name: document.getElementById('adminProjectName').value.trim(),
+                type,
+                typeLabel: typeLabels[type] || type,
+                description: document.getElementById('adminProjectDescription').value.trim(),
+                tags: document.getElementById('adminProjectTags').value.split(',').map(tag => tag.trim()).filter(Boolean),
+                link: document.getElementById('adminProjectLink').value.trim(),
+                asset: document.getElementById('adminProjectAsset').value.trim(),
+                icon: document.getElementById('adminProjectIcon').value.trim()
+            };
+            const projects = loadCustomProjects();
+            projects.push(project);
+            saveCustomProjects(projects);
+            renderCustomProjects();
+            renderAdminProjectList();
+            form.reset();
+        });
+    }
+
+    document.addEventListener('click', event => {
+        const deleteButton = event.target.closest('[data-delete-project]');
+        if (!deleteButton) return;
+        const id = deleteButton.getAttribute('data-delete-project');
+        saveCustomProjects(loadCustomProjects().filter(project => project.id !== id));
+        renderCustomProjects();
+        renderAdminProjectList();
+    });
+
+    const clearButton = document.getElementById('clearAdminProjects');
+    if (clearButton) {
+        clearButton.addEventListener('click', () => {
+            saveCustomProjects([]);
+            renderCustomProjects();
+            renderAdminProjectList();
+        });
+    }
+}
+
+window.addEventListener('load', initOwnerProjectManager);
